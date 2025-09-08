@@ -1,0 +1,94 @@
+# Extended configuration - enables many collectors for comprehensive monitoring
+# This provides rich system metrics for the Firefox Profiler
+
+exporters:
+  node_exporter:
+    # Enable extended set of collectors
+    enabled_collectors:
+      - boottime      # System boot time
+      - cpu           # CPU usage statistics
+      - diskstats     # Disk I/O statistics  
+      - filesystem    # Filesystem usage
+      - loadavg       # System load average
+      - meminfo       # Memory information
+      - netdev        # Network device statistics
+      - ntp           # NTP synchronization stats
+      - os            # Operating system info
+      - powersupplyclass  # Power supply information
+      - runit         # Runit service statistics
+      - supervisord   # Supervisord service statistics
+      - textfile      # Custom text file metrics
+      - thermal       # Thermal zone information
+      - time          # System time
+      - uname         # System information
+      - vmstat        # Virtual memory statistics
+      - wifi          # WiFi statistics (if available)
+    
+    # Explicitly disable collectors that are problematic or not needed
+    disabled_collectors:
+      - arp           # Can be noisy
+      - bcache        # Block cache (usually not present)
+      - bonding       # Network bonding (specialized)
+      - conntrack     # Connection tracking (can be heavy)
+      - cpufreq       # CPU frequency (not always available)
+      - edac          # Error detection (specialized hardware)
+      - entropy       # Entropy pool (security sensitive)
+      - hwmon         # Hardware monitoring (can fail)
+      - infiniband    # Infiniband (specialized hardware)
+      - ipvs          # IP Virtual Server (specialized)
+      - mdadm         # Software RAID (specialized)
+      - nfs           # NFS statistics (if not using NFS)
+      - nfsd          # NFS server (if not NFS server)
+      - pressure      # Pressure stall (newer kernels only)
+      - rapl          # Power consumption (Intel specific)
+      - schedstat     # Scheduler stats (can be heavy)
+      - sockstat      # Socket statistics (can be heavy)
+      - softnet       # Software network (detailed)
+      - stat          # Various statistics (redundant)
+      - timex         # Time sync details (redundant with ntp)
+      - udp_queues    # UDP queue stats (specialized)
+      - xfs           # XFS filesystem (if not using XFS)
+      - zfs           # ZFS filesystem (if not using ZFS)
+
+  process_exporter:
+    enabled: false
+
+  windows_exporter:
+    enabled_collectors:
+      - cpu
+      - cs
+      - logical_disk
+      - memory
+      - net
+      - os
+      - process
+      - system
+
+monitoring:
+  poll_interval: 0.1
+  output_dir: "profiles"
+  
+  # Extended metrics to track
+  track_metrics:
+    # System metrics
+    - load1
+    - load5
+    - load15
+    - boot_time
+    
+    # Network metrics
+    - network_receive_bytes
+    - network_transmit_bytes
+    - network_receive_packets
+    - network_transmit_packets
+    
+    # Filesystem metrics
+    - filesystem_size
+    - filesystem_free
+    - filesystem_used_percent
+    
+    # VM statistics
+    - vmstat_pgpgin
+    - vmstat_pgpgout
+    - vmstat_pswpin
+    - vmstat_pswpout

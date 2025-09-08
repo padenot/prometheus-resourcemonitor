@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Test outputs and profiles
+test_output/
+profiles/
+*.profile.json
+*_profile.json
+*_metrics.json
+
+# Downloaded exporters
+exporters/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+/tmp/
+
+# Test data files
+example_profile.json
+minimal_test_profile.json
+mach*.json
+test_*.json

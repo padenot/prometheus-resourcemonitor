@@ -1,0 +1,17 @@
+# Example configuration for resource monitoring
+# Copy to config.yaml and customize as needed
+
+exporters:
+  node_exporter:
+    # Collectors to explicitly enable (empty = use defaults)
+    enabled_collectors: []
+    
+    # Collectors to explicitly disable
+    disabled_collectors: []
+
+monitoring:
+  # Polling interval in seconds (0.1 = 10Hz, 0.01 = 100Hz)
+  poll_interval: 0.1
+  
+  # Directory for saving profiles
+  output_dir: "profiles"

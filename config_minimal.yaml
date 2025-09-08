@@ -1,0 +1,53 @@
+# Minimal configuration - only essential collectors
+# Good for reducing overhead and focusing on core metrics
+
+exporters:
+  node_exporter:
+    # Only enable core collectors needed for CPU, Memory, IO monitoring
+    enabled_collectors:
+      - cpu
+      - meminfo
+      - diskstats
+      - loadavg
+      - vmstat
+    
+    # Explicitly disable all other collectors
+    disabled_collectors:
+      - arp
+      - bcache
+      - bonding
+      - conntrack
+      - cpufreq
+      - edac
+      - entropy
+      - filefd
+      - filesystem
+      - hwmon
+      - infiniband
+      - ipvs
+      - mdadm
+      - netdev
+      - nfs
+      - nfsd
+      - powersupplyclass
+      - pressure
+      - rapl
+      - schedstat
+      - sockstat
+      - softnet
+      - stat
+      - textfile
+      - thermal
+      - time
+      - timex
+      - udp_queues
+      - uname
+      - xfs
+      - zfs
+
+  process_exporter:
+    enabled: false
+
+monitoring:
+  poll_interval: 0.1
+  output_dir: "profiles"

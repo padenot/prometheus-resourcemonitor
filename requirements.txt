@@ -1,0 +1,5 @@
+# Optional dependencies for enhanced functionality
+# Install with: pip3 install --user -r requirements.txt
+
+# For YAML configuration file support
+PyYAML>=5.4
